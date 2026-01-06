@@ -7,6 +7,14 @@
 /public/bundles/
 /var/
 /vendor/
+
+### IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
