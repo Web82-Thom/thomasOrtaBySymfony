@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,
-        <text y="%221.2em%22" font-size="%2296%22">⚫️</text>
-        <text y="%221.3em%22" x="%220.2em%22" font-size="%2276%22" fill="%22%23fff%22">sf</text>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Thomas Orta
+			{% endblock %}
+		</title>
 
-    {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-    {% endblock %}
-    </head>
-    <body>
-        <div style="max-width: 960px; margin: 40px auto; padding: 0 16px;">
-            <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 32px;">
-                <div style="font-weight:700; font-size:20px;">Thomas Orta</div>
-                <nav style="display:flex; gap:16px;">
-                <a href="{{ path('home') }}" style="text-decoration:none;">Accueil</a>
-                <a href="{{ path('services') }}" style="text-decoration:none;">Services</a>
-                <a href="{{ path('portfolio') }}" style="text-decoration:none;">Portfolio</a>
-                <a href="{{ path('contact') }}" style="text-decoration:none;">Contact</a>
-                </nav>
-            </header>
+		<link
+		rel="stylesheet" href="{{ asset('styles/app.css') }}">
 
-            <main>
-                {% block content %}{% endblock %}
-            </main>
+		{# Icône simple, sans SVG inline (on simplifie pour éviter la casse) #}
+		<link rel="icon" href="data:,"> {% block stylesheets %}{% endblock %}
 
-            <footer style="margin-top:48px; padding-top:16px; border-top:1px solid #eee; opacity:.7;">
-                © {{ "now"|date("Y") }} Thomas Orta
-            </footer>
-        </div>
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
 
-    </body>
+	<body>
+		<div class="container">
+			<header class="site-header">
+				<div class="brand">Thomas Orta</div>
+
+				<nav class="nav">
+					<a href="{{ path('home') }}">Accueil</a>
+					<a href="{{ path('services') }}">Services</a>
+					<a href="{{ path('portfolio') }}">Portfolio</a>
+					<a href="{{ path('contact') }}">Contact</a>
+				</nav>
+			</header>
+
+			<main>
+				{% block content %}{% endblock %}
+			</main>
+
+			<footer class="site-footer">
+				©
+				{{ "now"|date("Y") }}
+				Thomas Orta
+			</footer>
+		</div>
+	</body>
 </html>
