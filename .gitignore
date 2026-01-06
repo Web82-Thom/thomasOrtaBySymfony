@@ -12,6 +12,7 @@
 .idea/
 .vscode/
 .env.dev/
+/.env.dev/
 
 # OS
 .DS_Store
