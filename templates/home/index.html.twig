@@ -1,10 +1,261 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Thomas Orta{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-  <h1 style="margin:0 0 12px;">Développeur</h1>
-  <p style="margin:0; opacity:.8;">
-    Base Symfony opérationnelle. Prochaine étape : intégrer le design et le contenu de votre site.
+
+{# ===== HERO ===== #}
+<section id="hero" class="hero">
+  <div class="hero-gradient"></div>
+
+  <div class="hero-inner">
+    <h1>Développeur Web & Intégrateur Freelance</h1>
+
+    <p>
+      Je conçois des sites performants, modernes et durables.<br />
+      Disponible pour vos projets web et App-Flutter.
+    </p>
+
+    <div class="cta">
+      <a href="{{ path('home') }}#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="{{ path('home') }}#formContact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+</section>
+
+{# ===== SLIDER ===== #}
+<section id="slider" class="slider">
+  <div class="slides-container" id="slidesContainer">
+    <div class="slide">
+      <img src="{{ asset('images/computercode.jpg') }}" alt="Développeur Web">
+      <div class="slideTitle"><h2>Développeur Web</h2></div>
+    </div>
+
+    <div class="slide">
+      <img src="{{ asset('images/objectifsolutions.jpg') }}" alt="Objectifs et solutions">
+      <div class="slideTitle"><h2>Objectifs et solutions</h2></div>
+    </div>
+
+    <div class="slide">
+      <img src="{{ asset('images/serveur.jpg') }}" alt="Hébergement Web">
+      <div class="slideTitle"><h2>Hébergement Web</h2></div>
+    </div>
+  </div>
+
+  <button id="prevBtn" class="sliderBtn">‹</button>
+  <button id="nextBtn" class="sliderBtn">›</button>
+</section>
+
+{# ===== METEO (placeholder HTML) ===== #}
+<section id="forecast" class="forecast">
+  <h2>🌦️ Le petit coin météo</h2>
+
+  <div class="forecast-input">
+    <input type="text" id="cityValue" placeholder="Entrez votre ville">
+    <button id="button">Rechercher</button>
+  </div>
+
+  <div class="displayWeather" id="displayWeather" style="display:none;">
+    <div id="imgWeather">
+      <img id="icon" src="" alt="Icône météo" />
+    </div>
+    <p id="nameCity"></p>
+    <p id="description"></p>
+    <p id="temperature"></p>
+    <p id="temperatureMax"></p>
+    <p id="temperatureMin"></p>
+  </div>
+</section>
+
+{# ===== SERVICES ===== #}
+<section id="services" class="services">
+  <h2>💼 Mes services</h2>
+
+  <p id="mission" class="services-intro">
+    Ma mission est bien plus que le développement de votre site internet : je vous accompagne vers la réussite de votre activité.
   </p>
+
+  <div class="services-grid">
+    <article class="service">
+      <h3>🌐 Site Vitrine</h3>
+      <p>Présentez votre entreprise ou activité et développez votre notoriété en ligne.</p>
+      <ul>
+        <li>✅ Étude de votre projet / cahier des charges</li>
+        <li>✅ HTML, CSS, Javascript</li>
+        <li>✅ Validation W3C</li>
+        <li>✅ Hébergement</li>
+        <li>✅ Référencement Naturel</li>
+        <li>✅ Responsive smartphones/tablettes</li>
+      </ul>
+    </article>
+
+    <article class="service">
+      <h3>🧩 Intégration Web</h3>
+      <p>À partir de vos maquettes, textes et médias, je construis un site fidèle à votre image.</p>
+      <ul>
+        <li>✅ Étude de votre projet / cahier des charges</li>
+        <li>✅ Création base de données (PHP, MySQL)</li>
+        <li>✅ HTML, CSS, JavaScript</li>
+        <li>✅ Validation W3C</li>
+        <li>✅ Hébergement</li>
+        <li>✅ Référencement Naturel</li>
+        <li>✅ Responsive smartphones/tablettes</li>
+      </ul>
+    </article>
+
+    <article class="service">
+      <h3>✏️ Blog</h3>
+      <p>Partagez votre savoir-faire, vos conseils ou vos actualités avec un blog professionnel.</p>
+      <ul>
+        <li>✅ Étude de votre projet / cahier des charges</li>
+        <li>✅ Création base de données (PHP, MySQL)</li>
+        <li>✅ HTML, CSS, JavaScript</li>
+        <li>✅ Validation W3C</li>
+        <li>✅ Hébergement</li>
+        <li>✅ Référencement Naturel</li>
+        <li>✅ Responsive smartphones/tablettes</li>
+      </ul>
+    </article>
+
+    <article class="service">
+      <h3>⚙️ WordPress</h3>
+      <p>Créez un site clé en main facile à maintenir, avec toutes les fonctionnalités nécessaires.</p>
+      <ul>
+        <li>✅ Étude de votre projet / cahier des charges</li>
+        <li>✅ Validation W3C</li>
+        <li>✅ Hébergement</li>
+        <li>✅ Référencement Naturel</li>
+        <li>✅ Responsive smartphones/tablettes</li>
+      </ul>
+    </article>
+
+    <article class="service">
+      <h3>📱 App Mobile</h3>
+      <p>Créez une application mobile performante, fiable et évolutive, adaptée à tous vos besoins.</p>
+      <ul>
+        <li>✅ Analyse du projet et définition des fonctionnalités</li>
+        <li>✅ Développement Flutter multi-plateformes</li>
+        <li>✅ Intégration API / Base de données / Services externes</li>
+        <li>✅ Optimisation performances & design</li>
+        <li>✅ Publication Google Play / App Store</li>
+      </ul>
+    </article>
+  </div>
+
+  <p class="services-foot">
+    💡 L'étude de votre projet permettra de fixer un budget personnalisé.
+  </p>
+</section>
+
+{# ===== PROJECTS / PORTFOLIO ===== #}
+<section id="projects" class="projects">
+  <h2>💻 Mes réalisations</h2>
+
+  <p class="projects-intro">
+    Retrouvez tous mes projets créés : sites vitrine, blogs, applications web...
+  </p>
+
+  <div id="portfolio" class="portfolio-grid">
+    {% for p in projects %}
+      <figure class="project-card" data-url="{{ p.url }}">
+        {% if p.apk is defined %}
+          <button
+            class="apk-download-btn"
+            type="button"
+            data-apk="{{ p.apk }}"
+            data-title="{{ p.title }}"
+            aria-label="Télécharger l'APK">
+            ⬇
+          </button>
+        {% endif %}
+
+        <img src="{{ asset(p.img) }}" alt="{{ p.title }}">
+
+        <figcaption>
+          <h3>
+            <a href="{{ p.url }}" target="_blank" rel="noopener noreferrer">
+              {{ p.title }}
+            </a>
+          </h3>
+          <p>{{ p.desc }}</p>
+        </figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>
+
+{# ===== CONTACT ===== #}
+<section id="formContact" class="contact">
+  <h2>📩 Formulaire de contact</h2>
+
+  <div class="contact-card">
+    <h3>Contactez-moi !</h3>
+
+    <p>
+      Ma mission est bien plus que le développement de votre site internet.<br>
+      Contactez-moi via ce formulaire ou par téléphone.
+    </p>
+
+    <p class="phone">📞 Thomas ORTA : 06.12.14.92.55</p>
+
+    {# IMPORTANT: on gardera ton form simple pour l’instant.
+       En Symfony on fera un vrai form + CSRF ensuite. #}
+    <form method="post" action="#">
+      <label>Votre nom :
+        <input type="text" name="name" maxlength="20" required>
+      </label>
+
+      <label>Votre prénom :
+        <input type="text" name="firstName" maxlength="20" required>
+      </label>
+
+      <label>Titre de votre message :
+        <input type="text" name="title" maxlength="50" required>
+      </label>
+
+      <label>Votre e-mail :
+        <input type="email" name="email" maxlength="50" required>
+      </label>
+
+      <label>Votre message :
+        <textarea name="message" rows="5" maxlength="500" required></textarea>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" name="acceptSend" required>
+        J’accepte de transmettre mes informations.
+      </label>
+
+      <button id="formButton" type="submit">Envoyer le message</button>
+    </form>
+  </div>
+</section>
+
+{# ===== MODAL APK ===== #}
+<div id="apkModal" class="apkModal" aria-hidden="true">
+  <div class="apkModalCard">
+    <div class="apkModalHeader">
+      <h3 id="apkModalTitle">Télécharger l’application</h3>
+      <button id="apkClose" type="button" aria-label="Fermer">✕</button>
+    </div>
+
+    <hr>
+
+    <ol>
+      <li>Télécharge le fichier APK.</li>
+      <li>Envoie-le sur ton téléphone (mail, Drive, câble USB).</li>
+      <li>Ouvre le fichier depuis <b>Téléchargements</b>.</li>
+      <li>Autorise l’installation depuis cette source.</li>
+      <li>Accepte l’analyse de sécurité (Play Protect / système).</li>
+      <li>Installer → Ouvrir.</li>
+    </ol>
+
+    <p class="apkLinkWrap">
+      <a id="apkDirectLink" href="#" target="_blank" rel="noopener noreferrer">
+        👉 Télécharger à nouveau le fichier APK
+      </a>
+    </p>
+  </div>
+</div>
+
 {% endblock %}

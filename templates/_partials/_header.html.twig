@@ -1,0 +1,44 @@
+{# templates/_partials/_header.html.twig #}
+
+<header class="site-header">
+  {# Cookie banner (simple, côté front) #}
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des contenus adaptés.
+      </p>
+      <button class="cookie-banner__btn" id="cookieAcceptBtn" type="button">OK</button>
+    </div>
+  </div>
+
+  {# WRAP = permet d'avoir "2 blocs" (branding + nav) visuellement dans UNE seule barre #}
+  <div class="site-header__wrap">
+
+    {# ===== Bloc 1 : Branding (gauche desktop, haut mobile) ===== #}
+    <div class="site-header__top">
+      <div class="site-brand">
+        <a class="site-brand__title" href="{{ path('home') }}#top">Thomas ORTA</a>
+
+        <div class="site-brand__meta">
+          <span class="site-brand__phone">📞 06.12.14.92.55</span>
+          <span class="dot">—</span>
+          <strong>Freelance</strong>
+        </div>
+      </div>
+    </div>
+
+    {# ===== Bloc 2 : Navigation (droite desktop, dessous centré mobile) ===== #}
+    <nav class="site-nav" id="mainNav" aria-label="Navigation principale">
+      <a class="site-nav__link" href="{{ path('home') }}#top">🏠 Accueil</a>
+      <a class="site-nav__link" href="{{ path('home') }}#services">💼 Services</a>
+      <a class="site-nav__link" href="{{ path('home') }}#projects">📂 Portfolio</a>
+      <a class="site-nav__link" href="{{ path('home') }}#formContact">📩 Contact</a>
+
+      <div class="site-nav__admin">
+        <a class="site-nav__link" href="/login">🔑 Admin</a>
+        {# Plus tard : lien conditionnel login/logout via Symfony Security #}
+      </div>
+    </nav>
+
+  </div>
+</header>

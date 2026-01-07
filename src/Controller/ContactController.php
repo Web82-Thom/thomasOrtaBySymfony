@@ -6,13 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class ContactController extends AbstractController
+class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contact')]
     public function index(): Response
     {
-        return $this->render('contact/index.html.twig', [
-            'controller_name' => 'ContactController',
-        ]);
+        return $this->redirect($this->generateUrl('home') . '#formContact', 302);
     }
 }

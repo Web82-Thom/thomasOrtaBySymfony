@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<title>
 			{% block title %}Thomas Orta
 			{% endblock %}
 		</title>
 
-		<link
-		rel="stylesheet" href="{{ asset('styles/app.css') }}">
-
-		{# Icône simple, sans SVG inline (on simplifie pour éviter la casse) #}
 		<link rel="icon" href="data:,"> {% block stylesheets %}{% endblock %}
 
 		{% block javascripts %}
@@ -20,28 +18,15 @@
 		{% endblock %}
 	</head>
 
-	<body>
+	<body id="top">
 		<div class="container">
-			<header class="site-header">
-				<div class="brand">Thomas Orta</div>
-
-				<nav class="nav">
-					<a href="{{ path('home') }}">Accueil</a>
-					<a href="{{ path('services') }}">Services</a>
-					<a href="{{ path('portfolio') }}">Portfolio</a>
-					<a href="{{ path('contact') }}">Contact</a>
-				</nav>
-			</header>
+			{% include '_partials/_header.html.twig' %}
 
 			<main>
 				{% block content %}{% endblock %}
 			</main>
 
-			<footer class="site-footer">
-				©
-				{{ "now"|date("Y") }}
-				Thomas Orta
-			</footer>
+			{% include '_partials/_footer.html.twig' %}
 		</div>
 	</body>
 </html>
