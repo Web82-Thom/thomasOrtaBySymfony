@@ -1,5 +1,7 @@
 import './stimulus_bootstrap.js';
 import './styles/app.css';
+import { Forecast } from './weather.js';
+
 
 console.log('AssetMapper loaded');
 
@@ -90,6 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSlider();
   initServiceHover();
   initApkModal();
+  initCookieBanner();
+  
+  new Forecast();
 });
 
 function initCookieBanner() {
