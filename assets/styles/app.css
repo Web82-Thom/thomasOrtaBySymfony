@@ -1,84 +1,58 @@
-html { scroll-behavior: smooth; }
+/* ==========================================================================
+   SOMMAIRE
+   01. Réglages globaux
+   02. Header + Navigation + Cookie banner
+   03. Hero
+   04. Slider
+   05. Météo
+   06. Services
+   07. Portfolio
+   08. Contact
+   09. Modale APK
+   10. Footer
+   11. Animations (keyframes)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. RÉGLAGES GLOBAUX
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
 #top {
-    margin: 0;
+  margin: 0;
 }
-section { scroll-margin-top: 90px; }
 
-.hero { position:relative; overflow:hidden; min-height:clamp(220px, 35vh, 520px); padding:clamp(24px, 6vh, 64px) 16px; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; }
-/* HERO ANIMÉ */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Décalage d’ancre si besoin (utile quand header sticky, tu l’as retiré mais on garde) */
+section {
+  scroll-margin-top: 90px;
 }
-.hero-gradient {
-  background: linear-gradient(270deg, #2563eb, #7c3aed, #ec4899, #f97316);
-  background-size: 800% 800%;
-  animation: gradientMove 20s ease infinite;
-  position:absolute;
-  inset:0;
-  opacity:.9;
-}
-.hero-inner { position:relative; z-index:2; max-width:1100px; width:100%; }
-.cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
-.btn { padding:.75rem 1.25rem; border-radius:8px; text-decoration:none; display:inline-block; }
-.btn-primary { background:#fff; color:#111; font-weight:700; }
-.btn-outline { border:2px solid #fff; color:#fff; }
 
-.slider { position:relative; width:100%; height:clamp(250px, 50vh, 480px); overflow:hidden; border-radius:0px; }
-.slides-container { display:flex; height:100%; transition:transform .8s ease-in-out; }
-.slide { min-width:100%; position:relative; }
-.slide img { width:100%; height:100%; object-fit:cover; object-position:center; pointer-events:none; }
-.slideTitle { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; text-shadow:2px 2px 8px #000; }
 
-.sliderBtn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.4); border:none; color:#fff; font-size:2rem; border-radius:50%; width:40px; height:40px; cursor:pointer; z-index:10; }
-#prevBtn { left:15px; }
-#nextBtn { right:15px; }
+/* ==========================================================================
+   02. HEADER + NAV + COOKIE BANNER
+   ========================================================================== */
 
-.services, .projects, .forecast, .contact { max-width:1200px; margin:20px auto; padding:40px 16px; border-radius:10px; box-sizing:border-box; }
-.services { background:linear-gradient(180deg,#f9fafb,#f1f5f9); text-align:center; }
-.services-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:30px; }
-.service { background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.1); padding:25px; flex:1 1 260px; max-width:280px; min-width:240px; transition:transform .3s, box-shadow .3s; text-align:left; }
-.service:hover { transform:translateY(-6px); box-shadow:0 10px 20px rgba(0,0,0,.15); }
-
-.projects { background:#fff; border:2px solid #111; text-align:center; }
-.portfolio-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:20px; }
-.project-card { position:relative; flex:1 1 260px; max-width:280px; min-width:240px; background:#f9fafb; border-radius:12px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,.1); transition:transform .3s, box-shadow .3s; }
-.project-card:hover { transform:translateY(-6px); box-shadow:0 10px 20px rgba(0,0,0,.15); }
-.project-card img { width:100%; height:180px; object-fit:cover; display:block; }
-.project-card figcaption { padding:14px; opacity:0; transition:opacity .25s ease; }
-.project-card:hover figcaption { opacity:1; }
-
-.apk-download-btn { position:absolute; top:10px; left:10px; z-index:10; width:38px; height:38px; border:none; border-radius:999px; background:rgba(0,0,0,.65); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-
-.contact { background:linear-gradient(180deg,#111,#333); color:#fff; text-align:center; }
-.contact-card { max-width:700px; margin:0 auto; background:#1f2937; padding:30px 25px; border-radius:15px; text-align:left; }
-.contact-card input, .contact-card textarea { width:100%; padding:12px; border:none; border-radius:8px; margin-top:6px; box-sizing:border-box; }
-.contact-card label { display:block; margin-top:12px; }
-.contact-card .consent { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-#formButton { margin-top:14px; background:#f59e0b; color:#111; border:none; border-radius:8px; padding:14px; font-weight:700; cursor:pointer; }
-
-.apkModal { position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:10000; }
-.apkModalCard { background:#fff; max-width:520px; width:90%; border-radius:12px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.3); }
-.apkModalHeader { display:flex; justify-content:space-between; align-items:center; }
-/* ===== Header (objectif : une seule barre visuelle, 2 blocs internes) ===== */
-.site-header{
-  top: 0;
+/* Header (non sticky, comme tu l’as décidé) */
+.site-header {
   z-index: 1000;
   color: #fff;
   background: linear-gradient(45deg, #000, #444, #000);
 }
 
-.site-header__top{
-    /* animation */
+/* Animation sur le bloc "top" (branding) */
+.site-header__top {
   animation-name: header-spin;
-  animation-duration: 5s;        
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-delay: 5s;
 }
 
-/* WRAP : contient branding + nav dans une seule "barre" */
-.site-header__wrap{
+/* Wrap : branding + nav dans une seule barre */
+.site-header__wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 10px 16px;
@@ -89,8 +63,8 @@ section { scroll-margin-top: 90px; }
   gap: 18px;
 }
 
-/* Bloc branding */
-.site-brand__title{
+/* Branding */
+.site-brand__title {
   color: #fff;
   text-decoration: none;
   font-size: 2rem;
@@ -98,10 +72,10 @@ section { scroll-margin-top: 90px; }
   line-height: 1.1;
 }
 
-.site-brand__meta{
+.site-brand__meta {
   margin-top: 4px;
   font-size: 1rem;
-  opacity: .95;
+  opacity: 0.95;
 
   display: flex;
   flex-wrap: wrap;
@@ -109,87 +83,51 @@ section { scroll-margin-top: 90px; }
   align-items: center;
 }
 
-.site-brand__meta .dot{
-  opacity: .7;
+.site-brand__meta .dot {
+  opacity: 0.7;
 }
 
-/* Nav desktop */
-.site-nav{
-  /* IMPORTANT : on enlève le fond séparé pour garder 1 seule barre visuelle */
+/* Navigation */
+.site-nav {
   background: transparent;
-  border-top: 0;
 
   display: flex;
   align-items: center;
   gap: 18px;
-  flex-wrap: wrap; /* autorise un wrap propre si manque de place */
-  justify-content: flex-end; /* menu à droite sur desktop */
+  flex-wrap: wrap;
+  justify-content: flex-end; /* desktop */
 }
 
-.site-nav__link{
+.site-nav__link {
   color: #fff;
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 8px;
-  opacity: .92;
-  white-space: nowrap; /* évite les retours à la ligne moches dans un item */
+  opacity: 0.92;
+  white-space: nowrap;
 }
 
-.site-nav__link:hover{
+.site-nav__link:hover {
   opacity: 1;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.site-nav__admin{
+.site-nav__admin {
   display: flex;
   align-items: center;
 }
 
-/* ===== Mobile  ===== */
-@media (max-width: 780px){
-  .site-header__wrap{
-    flex-direction: column;   /* branding au-dessus, nav en dessous */
-    align-items: center;      /* centre horizontalement */
-    gap: 10px;
-  }
-
-  .site-brand{
-    text-align: center;
-    
-  }
-
-  .site-brand__title{
-    font-size: 1.6rem;
-  }
-
-  .site-brand__meta{
-    justify-content: center;  /* centre téléphone + freelance */
-  }
-
-  .site-nav{
-    justify-content: center;  /* centre le menu */
-    width: 100%;
-  }
-  .project-card figcaption {
-    opacity: 1;
-    transform: translateY(0);
-    position: relative;
-    height: auto;
-    background: #111;
-  }
-}
-
-
-/* ===== Cookie banner ===== */
-.cookie-banner{
+/* Cookie banner */
+.cookie-banner {
   background: #111;
   border-bottom: 2px solid #dc2626;
 }
 
-.cookie-banner__inner{
+.cookie-banner__inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 10px 16px;
+
   display: flex;
   gap: 12px;
   align-items: center;
@@ -197,13 +135,13 @@ section { scroll-margin-top: 90px; }
   flex-wrap: wrap;
 }
 
-.cookie-banner__text{
+.cookie-banner__text {
   margin: 0;
-  font-size: .95rem;
-  opacity: .95;
+  font-size: 0.95rem;
+  opacity: 0.95;
 }
 
-.cookie-banner__btn{
+.cookie-banner__btn {
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
@@ -213,47 +151,189 @@ section { scroll-margin-top: 90px; }
   cursor: pointer;
 }
 
-/* ===== Mobile ===== */
-.nav-toggle{
-  /* display: none; */
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(0,0,0,.35);
+/* Responsive header : menu en dessous, centré (choix A) */
+@media (max-width: 780px) {
+  .site-header__wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .site-brand {
+    text-align: center;
+  }
+
+  .site-brand__title {
+    font-size: 1.6rem;
+  }
+
+  .site-brand__meta {
+    justify-content: center;
+  }
+
+  .site-nav {
+    justify-content: center; /* centré sous le titre */
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   03. HERO
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(220px, 35vh, 520px);
+  padding: clamp(24px, 6vh, 64px) 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
   color: #fff;
-  border-radius: 10px;
-  padding: 8px 12px;
+}
+
+/* Fond animé du hero (dégradé) */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+
+  background: linear-gradient(270deg, #2563eb, #7c3aed, #ec4899, #f97316);
+  background-size: 800% 800%;
+  animation: gradientMove 20s ease infinite;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* CTA boutons */
+.cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #111;
+  font-weight: 700;
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   04. SLIDER
+   ========================================================================== */
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: clamp(250px, 50vh, 480px);
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+.slides-container {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.slideTitle {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-shadow: 2px 2px 8px #000;
+}
+
+/* Boutons du slider */
+.sliderBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
   cursor: pointer;
 }
 
-@media (max-width: 780px){
-  .nav-toggle{ display: inline-flex; }
-  .site-nav{
-    display: flex;
-    /* flex-direction: column; */
-    align-items: stretch;
-    gap: 10px;
-    padding: 12px 16px;
-  }
-  .site-nav.is-open{ display: flex; }
-  .site-brand__title{ font-size: 1.6rem; }
+#prevBtn {
+  left: 15px;
 }
 
-/* ===== SECTION METEO ===== */
+#nextBtn {
+  right: 15px;
+}
+
+
+/* ==========================================================================
+   05. MÉTÉO
+   ========================================================================== */
+
 .forecast {
-  max-width: 600px;          /* largeur maîtrisée */
+  max-width: 600px;
+  margin: 20px auto;
   padding: 30px 20px;
-  text-align: center;        
+  text-align: center;
 }
 
-/* Champ + bouton centrés */
+/* Champ + bouton */
 .forecast-input {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;           /* propre en mobile */
+  flex-wrap: wrap;
   margin: 20px 0;
 }
 
-/* Résultat météo centré */
+/* Résultat */
 .displayWeather {
   margin-top: 20px;
 }
@@ -264,24 +344,110 @@ section { scroll-margin-top: 90px; }
   margin-bottom: 10px;
 }
 
-/*
-*
-*       SECTION PORTFOLIO
-*
-*/
+
+/* ==========================================================================
+   06. SERVICES
+   ========================================================================== */
+
+/* Base sections “blocs” */
+.services,
+.projects,
+.contact {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 40px 16px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.services {
+  background: linear-gradient(180deg, #f9fafb, #f1f5f9);
+  text-align: center;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  padding: 25px;
+  flex: 1 1 260px;
+  max-width: 280px;
+  min-width: 240px;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.service:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================================================
+   07. PORTFOLIO
+   ========================================================================== */
+
+.projects {
+  background: #fff;
+  border: 2px solid #111;
+  text-align: center;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
 .project-card {
   margin: 0;
   position: relative;
   overflow: hidden;
+
+  flex: 1 1 260px;
+  max-width: 280px;
+  min-width: 240px;
+
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Figcaption overlay (desktop) */
 .project-card figcaption {
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
-  /* width: 100%; */
+  bottom: 0;
+
   height: 40%;
+  box-sizing: border-box;
 
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
@@ -292,10 +458,8 @@ section { scroll-margin-top: 90px; }
   flex-direction: column;
   justify-content: center;
 
-  /* état caché */
   opacity: 0;
   transform: translateY(20px);
-
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -304,6 +468,7 @@ section { scroll-margin-top: 90px; }
   transform: translateY(0);
 }
 
+/* Contenu figcaption */
 .project-card figcaption h3 {
   margin: 0 0 6px;
   font-size: 1rem;
@@ -316,86 +481,218 @@ section { scroll-margin-top: 90px; }
 }
 
 .project-card figcaption h3 a {
-  text-decoration: none;   
-  color: inherit;          
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bouton téléchargement APK */
+.apk-download-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile : figcaption toujours visible (plus fiable sans hover) */
+@media (max-width: 780px) {
+  .project-card figcaption {
+    position: relative;
+    height: auto;
+    background: #111;
+
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
-/*
-*
-*       SECTION FOOTER
-*
-*/
-#infosFooter h2, #titleSectionPost {
-    display: none;
+/* ==========================================================================
+   08. CONTACT
+   ========================================================================== */
+
+.contact {
+  background: linear-gradient(180deg, #111, #333);
+  color: #fff;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 700px;
+  margin: 0 auto;
+
+  background: #1f2937;
+  padding: 30px 25px;
+  border-radius: 15px;
+
+  text-align: left;
+}
+
+.contact-card label {
+  display: block;
+  margin-top: 12px;
+}
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.contact-card .consent {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#formButton {
+  margin-top: 14px;
+  background: #f59e0b;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   09. MODALE APK
+   ========================================================================== */
+
+.apkModal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.apkModalCard {
+  background: #fff;
+  max-width: 520px;
+  width: 90%;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.apkModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
+
+#infosFooter h2,
+#titleSectionPost {
+  display: none;
 }
 
 footer {
-    color: white;
-    background-color: black;
-
+  color: white;
+  background-color: black;
 }
 
 footer section {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .footerIntro {
-    text-align: center;
-    width: 90%;
-    margin: auto;
-    margin-top: 20px;
-    border: 2px solid orange;
-    color: black;
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 15px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+
+  border: 2px solid orange;
+  color: black;
+  background: white;
+
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 #contactInfos {
-    margin: 20px;
+  margin: 20px;
 }
 
 .titleContact {
-    display: none;
+  display: none;
 }
 
 #contactInfos ul {
-    list-style-type: none;
-    font-size: 15px;
+  list-style-type: none;
+  font-size: 15px;
 }
 
-#contactInfos article{
-    width: auto;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
+#contactInfos article {
+  width: auto;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
-#contact h4, #moreInfos h4 {
-    font-size: 20px;
-    margin-bottom: 0px;
-    display: flex;
-    align-items: flex-start ;
+#contact h4,
+#moreInfos h4 {
+  font-size: 20px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
 }
 
-F#webCreator {
-    font-size: 15px;
+/* NOTE: tu avais "F#webCreator" -> erreur de selector, corrigé en "#webCreator" */
+#webCreator {
+  font-size: 15px;
 }
 
-#contactInfos li{
-    padding-bottom: 10px;
+#contactInfos li {
+  padding-bottom: 10px;
 }
 
-/* ===== Animation rotation douce header ===== */
+
+/* ==========================================================================
+   11. ANIMATIONS (KEYFRAMES)
+   ========================================================================== */
+
+/* Hero gradient animé */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rotation branding header */
 @keyframes header-spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
 }
