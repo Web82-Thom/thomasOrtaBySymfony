@@ -6,13 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class PortfolioController extends AbstractController
+class PortfolioController extends AbstractController
 {
     #[Route('/portfolio', name: 'portfolio')]
     public function index(): Response
     {
-        return $this->render('portfolio/index.html.twig', [
-            'controller_name' => 'PortfolioController',
-        ]);
+        return $this->redirect($this->generateUrl('home') . '#projects', 302);
     }
 }
