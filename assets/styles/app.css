@@ -35,7 +35,7 @@ section { scroll-margin-top: 90px; }
 #prevBtn { left:15px; }
 #nextBtn { right:15px; }
 
-.services, .projects, .forecast, .contact { max-width:1200px; margin:40px auto; padding:40px 16px; border-radius:10px; box-sizing:border-box; }
+.services, .projects, .forecast, .contact { max-width:1200px; margin:20px auto; padding:40px 16px; border-radius:10px; box-sizing:border-box; }
 .services { background:linear-gradient(180deg,#f9fafb,#f1f5f9); text-align:center; }
 .services-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:30px; }
 .service { background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.1); padding:25px; flex:1 1 260px; max-width:280px; min-width:240px; transition:transform .3s, box-shadow .3s; text-align:left; }
@@ -145,7 +145,7 @@ section { scroll-margin-top: 90px; }
   align-items: center;
 }
 
-/* ===== Mobile : menu dessous + centré (choix A) ===== */
+/* ===== Mobile  ===== */
 @media (max-width: 780px){
   .site-header__wrap{
     flex-direction: column;   /* branding au-dessus, nav en dessous */
@@ -169,6 +169,13 @@ section { scroll-margin-top: 90px; }
   .site-nav{
     justify-content: center;  /* centre le menu */
     width: 100%;
+  }
+  .project-card figcaption {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    height: auto;
+    background: #111;
   }
 }
 
@@ -229,6 +236,91 @@ section { scroll-margin-top: 90px; }
   .site-nav.is-open{ display: flex; }
   .site-brand__title{ font-size: 1.6rem; }
 }
+
+/* ===== SECTION METEO ===== */
+.forecast {
+  max-width: 600px;          /* largeur maîtrisée */
+  padding: 30px 20px;
+  text-align: center;        
+}
+
+/* Champ + bouton centrés */
+.forecast-input {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;           /* propre en mobile */
+  margin: 20px 0;
+}
+
+/* Résultat météo centré */
+.displayWeather {
+  margin-top: 20px;
+}
+
+#imgWeather {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/*
+*
+*       SECTION PORTFOLIO
+*
+*/
+.project-card {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* width: 100%; */
+  height: 40%;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* état caché */
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card figcaption h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.project-card figcaption p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.project-card figcaption h3 a {
+  text-decoration: none;   
+  color: inherit;          
+}
+
+
 /*
 *
 *       SECTION FOOTER
